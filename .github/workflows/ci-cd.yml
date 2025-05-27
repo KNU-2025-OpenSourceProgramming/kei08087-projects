@@ -55,7 +55,7 @@ jobs:
         sleep 60
 
   youtube-search:
-    need: audio-record
+    needs: audio-record
     runs-on: ubuntu-latest
     if: contains(github.event.head_commit.message, 'youtube-search') || github.event_name == 'pull_request'
     steps:
@@ -97,7 +97,7 @@ jobs:
         sleep 60
     
   face-recog:
-    need: youtube-search
+    needs: youtube-search
     runs-on: ubuntu-latest
     if: contains(github.event.head_commit.message, 'face-recog') || github.event_name == 'pull_request'
     steps:
